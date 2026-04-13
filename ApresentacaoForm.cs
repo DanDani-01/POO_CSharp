@@ -32,7 +32,11 @@ namespace POO_C__Git
             titulo2.Text = obj1.Marca;
 
             //fazer o elemento exibir no from
-            this.Controls.Add(titulo1);
+            //fazer um array de controls
+            Control[] elementos = { titulo1, titulo2 };
+            this.Controls.AddRange(elementos);
+
+            //this.Controls.Add(titulo1);
         }
     }
 }
