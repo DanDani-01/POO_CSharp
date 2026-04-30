@@ -16,10 +16,7 @@ namespace POO_C__Git
     {
         //criar um objeto do automóvel
         Automovel carro01 = new Automovel();
-        Automovel modelo01 = new Automovel();
-        Automovel tipo = new Automovel();
-        Automovel velocidade = new Automovel();
-        Automovel ano = new Automovel();
+        Automovel carro02 = new Automovel();
 
         //Criar um objeto
         PictureBox img = new PictureBox();
@@ -30,6 +27,7 @@ namespace POO_C__Git
         Label txtVelocidade = new Label();
         Label txtAno = new Label();
         Button btn1 = new Button();
+        Button btn2 = new Button();
         
         // CONSTRUTOR
         public ApresentacaoForm()
@@ -38,13 +36,16 @@ namespace POO_C__Git
             this.Size = new Size(500,500);
 
             //configuração do label titulo1
-            titulo1.Text = "Bem vindo ao inferno";
+            titulo1.Text = "Ana Maradun";
             titulo1.Font = new Font("Arial", 20);
             titulo1.AutoSize = true; //ajustar no tamanho do texto
-            titulo1.Location = new Point(250, 250);
+            titulo1.Location = new Point(50, 20);
             btn1.Text = "Botão legal";
-            btn1.Location = new Point(50, 50);
+            btn1.Location = new Point(50, 60);
             btn1.Click += Clicar; //evento de clique
+            btn2.Text = "Camaro Amarelo (Bumblebee)";
+            btn2.Location = new Point(140, 60);
+            btn2.Click += Clicar2;
 
 
 
@@ -53,16 +54,12 @@ namespace POO_C__Git
             //this.titulo2.Text = "Marca " + carro01.GetMarca();
             //this.titulo2.Location = new Point(280, 280);
 
-            img.Image = Image.FromFile(@"C:\\Users\\LabInfo\\Source\\Repos\\POO_CSharp\\img\\f40.jpg");
-            img.SizeMode = PictureBoxSizeMode.AutoSize;
-            img.Width = 50;
-            img.Height = 10;
-            this.img.Location = new Point(280, 400);
+
 
 
             //fazer o elemento exibir no from
             //fazer um array de controls
-            Control[] elementos = { titulo1, txtAno, txtMarca, txtModelo, txtVelocidade, btn1, img };
+            Control[] elementos = { titulo1, txtAno, txtMarca, txtModelo, txtVelocidade, btn1, btn2, img };
             this.Controls.AddRange(elementos);
 
             //Forma única: this.Controls.Add(titulo1);
@@ -71,24 +68,55 @@ namespace POO_C__Git
         //metodo de evento
         private void Clicar(object sender, EventArgs e)
         {
-            MessageBox.Show("Clicou no botão");
+            //MessageBox.Show("Clicou no botão");
             carro01.Marca = "Ferrari";
             carro01.Ano = 2010;
+            carro01.Velocidade = "200Km/h";
             carro01.Modelo = "F40";
-            carro01.Velocidade = "300km/h";
+            
            
             txtMarca.Text = "Marca: " + carro01.Marca;
-            txtMarca.Location = new Point(280, 280);
+            txtMarca.Location = new Point(50, 100);
             txtModelo.Text = "Modelo: " + carro01.Modelo;
-            txtModelo.Location = new Point(280, 310);   
+            txtModelo.Location = new Point(50, 130);   
             txtVelocidade.Text = "Velocidade: " + carro01.Velocidade;
-            txtVelocidade.Location = new Point(280, 340);
+            txtVelocidade.AutoSize = true;
+            txtVelocidade.Location = new Point(50, 160);
             txtAno.Text = "Ano: " + carro01.Ano;
-            txtAno.Location = new Point(280, 370);  
+            txtAno.Location = new Point(50, 190);
 
-            
+            img.Image = Image.FromFile(@"C:\Users\LabInfo\Source\Repos\POO_CSharp\img\f40.jpg");
+            img.SizeMode = PictureBoxSizeMode.StretchImage;
+            img.Width = 200;
+            img.Height = 150;
+            this.img.Location = new Point(50, 220);
         }
+        private void Clicar2(object sender, EventArgs e)
+        {
+           
+            carro01.Marca = "Chevrollet";
+            carro01.Ano = 2020;
+            carro01.Velocidade = "250Km/h";
+            carro01.Modelo = "Camaro Amarelo";
 
+
+            txtMarca.Text = "Marca: " + carro01.Marca;
+            txtMarca.Location = new Point(50, 100);
+            txtModelo.Text = "Modelo: " + carro01.Modelo;
+            txtModelo.Location = new Point(50, 130);
+            txtModelo.AutoSize = true;
+            txtVelocidade.Text = "Velocidade: " + carro01.Velocidade;
+            txtVelocidade.AutoSize = true;
+            txtVelocidade.Location = new Point(50, 160);
+            txtAno.Text = "Ano: " + carro01.Ano;
+            txtAno.Location = new Point(50, 190);
+
+            img.Image = Image.FromFile(@"C:\Users\LabInfo\Source\Repos\POO_CSharp\img\Camaro.jpg");
+            img.SizeMode = PictureBoxSizeMode.StretchImage;
+            img.Width = 250;
+            img.Height = 150;
+            this.img.Location = new Point(50, 220);
+        }
 
         private void InitializeComponent()
         {
