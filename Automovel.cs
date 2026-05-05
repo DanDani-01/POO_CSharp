@@ -26,13 +26,34 @@ namespace POO_CSharp_Git
 
 
         // Criar um construtor para a classe Automovel
-        public Automovel() { 
-            
+        public Automovel()
+        {
+
         }
 
         public Automovel(string marca)
         {
             this.Marca = marca;
+        }
+
+        public void Acelerar()
+        {
+            Console.WriteLine("Acelerando o automóvel...");
+        }
+
+        public string Acelerar(string velocidade)
+        {
+            return "Acelerando o automóvel a " + velocidade + "Km/h";
+        }
+
+        public int Acelerar(int velocidade)
+        {
+            return velocidade + 10;
+        }
+
+        public virtual string Frear()
+        {
+            return "Freando o automóvel...";
         }
     }
 }

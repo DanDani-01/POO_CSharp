@@ -26,8 +26,11 @@ namespace POO_C__Git
         Label txtTipo = new Label();
         Label txtVelocidade = new Label();
         Label txtAno = new Label();
+        Label txtFrear = new Label();
+
         Button btn1 = new Button();
         Button btn2 = new Button();
+        Button btn3 = new Button();
         
         // CONSTRUTOR
         public ApresentacaoForm()
@@ -46,6 +49,9 @@ namespace POO_C__Git
             btn2.Text = "Camaro Amarelo (Bumblebee)";
             btn2.Location = new Point(140, 60);
             btn2.Click += Clicar2;
+            btn3.Text = "McLaren F1";
+            btn3.Location = new Point(230, 60);
+            btn3.Click += Heranca;
 
 
 
@@ -59,7 +65,7 @@ namespace POO_C__Git
 
             //fazer o elemento exibir no from
             //fazer um array de controls
-            Control[] elementos = { titulo1, txtAno, txtMarca, txtModelo, txtVelocidade, btn1, btn2, img };
+            Control[] elementos = { titulo1, txtAno, txtMarca, txtModelo, txtVelocidade, txtFrear, btn1, btn2, btn3, img };
             this.Controls.AddRange(elementos);
 
             //Forma única: this.Controls.Add(titulo1);
@@ -71,19 +77,24 @@ namespace POO_C__Git
             //MessageBox.Show("Clicou no botão");
             carro01.Marca = "Ferrari";
             carro01.Ano = 2010;
-            carro01.Velocidade = "200Km/h";
+            carro01.Velocidade = carro01.Acelerar(200).ToString();
             carro01.Modelo = "F40";
             
-           
+
+
             txtMarca.Text = "Marca: " + carro01.Marca;
-            txtMarca.Location = new Point(50, 100);
             txtModelo.Text = "Modelo: " + carro01.Modelo;
-            txtModelo.Location = new Point(50, 130);   
             txtVelocidade.Text = "Velocidade: " + carro01.Velocidade;
             txtVelocidade.AutoSize = true;
-            txtVelocidade.Location = new Point(50, 160);
             txtAno.Text = "Ano: " + carro01.Ano;
+            txtFrear.Text = "Frear: " + carro01.Frear();
+            txtFrear.AutoSize = true;
+
+            txtMarca.Location = new Point(50, 100);
+            txtModelo.Location = new Point(50, 130);
+            txtVelocidade.Location = new Point(50, 160);
             txtAno.Location = new Point(50, 190);
+            txtFrear.Location = new Point(50, 380);
 
             img.Image = Image.FromFile(@"C:\Users\LabInfo\Source\Repos\POO_CSharp\img\f40.jpg");
             img.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -118,6 +129,18 @@ namespace POO_C__Git
             this.img.Location = new Point(50, 220);
         }
 
+        private void Heranca (object sender, EventArgs e)
+        {
+            Carro Obj01Carro = new Carro("McLaren", "Fórmula 1");
+            txtMarca.Text = "Marca: " + Obj01Carro.Marca;
+            txtModelo.Text = "Tipo: " + Obj01Carro.Modelo;
+           
+            txtMarca.Location = new Point(50, 100);
+            txtModelo.Location = new Point(50, 130);
+            
+            txtFrear.Text = Obj01Carro.Frear();
+
+        }
         private void InitializeComponent()
         {
             this.SuspendLayout();
